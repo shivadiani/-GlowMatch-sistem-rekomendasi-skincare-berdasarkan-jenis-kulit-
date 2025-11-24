@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GlowMatch - Rekomendasi Skincare</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <p class="hero__tag">GlowMatch</p>
+        <h1>Rekomendasi Skincare Berdasarkan Jenis Kulit</h1>
+        <p>
+          Temukan rutinitas perawatan kulit yang paling cocok hanya dengan
+          memilih kondisi kulitmu. Sistem kami memberikan rekomendasi produk
+          berdasarkan kebutuhan spesifik kulit.
+        </p>
+        <a class="hero__cta" href="#kenali-kulit" aria-label="Loncat ke form Kenali Kulit">
+          Mulai Sekarang
+        </a>
+      </div>
+      <div class="hero__card">
+        <h3>Insight Cepat</h3>
+        <ul>
+          <li>5+ kategori kulit</li>
+          <li>Tips pagi & malam</li>
+          <li>Rekomendasi bahan aktif</li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <section class="tool" id="kenali-kulit">
+        <div class="tool__header">
+          <h2>Kenali Kulitmu</h2>
+          <p>
+            Pilih jenis kulit, kondisi tambahan, dan intensitas perawatan untuk
+            mendapatkan rekomendasi produk personal.
+          </p>
+        </div>
+        <form class="tool__form" id="skin-form">
+          <label>
+            Jenis Kulit
+            <select name="jenis" required>
+              <option value="">Pilih...</option>
+              <option value="kering">Kering</option>
+              <option value="berminyak">Berminyak</option>
+              <option value="kombinasi">Kombinasi</option>
+              <option value="normal">Normal</option>
+              <option value="sensitif">Sensitif</option>
+            </select>
+          </label>
+
+          <label>
+            Fokus Perawatan
+            <select name="fokus" required>
+              <option value="">Pilih...</option>
+              <option value="mencerahkan">Mencerahkan</option>
+              <option value="anti-aging">Anti-aging</option>
+              <option value="anti-jerawat">Anti-jerawat</option>
+              <option value="menenangkan">Menenangkan</option>
+              <option value="hidrasi">Hidrasi Maksimal</option>
+            </select>
+            <small id="focus-hint">Pilih jenis kulit terlebih dahulu untuk rekomendasi fokus otomatis.</small>
+          </label>
+
+          <label>
+            Intensitas Rutinitas
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="intensitas" value="dasar" checked />
+                Dasar (3 langkah)
+              </label>
+              <label>
+                <input type="radio" name="intensitas" value="lengkap" />
+                Lengkap (5 langkah)
+              </label>
+            </div>
+          </label>
+
+          <button type="submit">Lihat Rekomendasi</button>
+        </form>
+      </section>
+
+      <section id="rekomendasi" class="result">
+        <div class="result__header">
+          <div>
+            <p class="result__tag">Hasil Personal</p>
+            <h2>Rekomendasi Produk</h2>
+          </div>
+          <button id="export-btn" class="secondary">Unduh PDF</button>
+        </div>
+        <div id="result-list" class="result__grid">
+          <p class="result__placeholder">
+            Isi form di atas untuk melihat rekomendasi skincare.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <div class="chatbot">
+      <button
+        id="chat-toggle"
+        class="chatbot__toggle"
+        aria-expanded="false"
+        aria-controls="chat-panel"
+      >
+        <span class="chatbot__icon" aria-hidden="true">💬</span>
+        <span class="sr-only">Buka percakapan dengan GlowBot</span>
+      </button>
+      <div class="chatbot__panel" id="chat-panel" aria-hidden="true">
+        <header class="chatbot__header">
+          <div>
+            <p class="chatbot__tag">GlowBot</p>
+            <strong>Konsultan Skincare</strong>
+            <p class="chatbot__hint">Tanya rekomendasi produk & tips cepat.</p>
+          </div>
+          <button id="chat-close" class="chatbot__close" aria-label="Tutup chat">
+            ×
+          </button>
+        </header>
+        <div class="chatbot__messages" id="chat-messages" role="log">
+          <div class="chatbot__bubble chatbot__bubble--bot">
+            Hai! Sebutkan jenis kulit atau masalah yang ingin kamu atasi, aku
+            bantu pilihkan produk GlowMatch yang pas.
+          </div>
+        </div>
+        <form class="chatbot__form" id="chat-form">
+          <input
+            type="text"
+            id="chat-input"
+            placeholder="Contoh: kulit kering butuh toner apa?"
+            autocomplete="off"
+            required
+            aria-label="Tulis pesan ke chatbot"
+          />
+          <button type="submit">Kirim</button>
+        </form>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>© 2025 GlowMatch. Dibuat untuk membantu mengenali kebutuhan kulitmu.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+
